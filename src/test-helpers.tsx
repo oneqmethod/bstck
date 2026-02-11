@@ -65,6 +65,7 @@ export const mockTech = (overrides?: Partial<import("./types.ts").Technology>) =
   description: "UI library",
   reasoning: "popular",
   docsUrl: "https://react.dev",
+  repoUrl: null,
   selected: true,
   ...overrides,
 })

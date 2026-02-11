@@ -25,7 +25,7 @@ export type Technology = {
   description: string
   reasoning: string
   docsUrl: string
-  repoUrl?: string
+  repoUrl: string | null
   selected: boolean
 }
 

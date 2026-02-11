@@ -19,7 +19,7 @@ const TechSchema = z.object({
   description: z.string(),
   reasoning: z.string(),
   docsUrl: z.string(),
-  repoUrl: z.string().optional(),
+  repoUrl: z.string().nullable(),
 })
 
 export async function fetchSource(slug: string): Promise<string> {

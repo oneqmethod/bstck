@@ -50,6 +50,7 @@ export function CurationScreen() {
               <select
                 options={options}
                 focused
+                flexGrow={1}
                 onChange={(index: number) => {
                   setHighlightedIndex(index)
                 }}
