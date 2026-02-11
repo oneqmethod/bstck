@@ -25,7 +25,7 @@ export function WelcomeScreen() {
         alignItems="center"
         gap={1}
       >
-        <ascii-font font="shade" text="BStack" />
+        <ascii-font font="block" text="BStack" />
         <text attributes={TextAttributes.DIM}>
           Curate tech stacks for Claude Code
         </text>

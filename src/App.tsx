@@ -17,7 +17,7 @@ const initialState: AppState = {
   topic: "",
   repoSlugs: [],
   technologies: [],
-  targetDir: "./",
+  targetDir: "./out",
   skillResults: [],
   claudeMdGenerated: false,
 }

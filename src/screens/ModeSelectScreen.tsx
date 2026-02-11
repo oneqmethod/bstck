@@ -32,9 +32,10 @@ export function ModeSelectScreen() {
         <Header />
         <box flexDirection="column" padding={1} gap={1} flexGrow={1}>
           <text>How do you want to build your stack?</text>
-          <box marginTop={1}>
+          <box marginTop={1} flexGrow={1}>
             <select
               options={options}
+              height={8}
               onSelect={(_index, option: (typeof options)[number] | null) => {
                 if (!option) return
                 const mode = option.value
