@@ -1,16 +1,6 @@
-import { createCliRenderer, TextAttributes } from "@opentui/core";
-import { createRoot } from "@opentui/react";
+import { createCliRenderer } from "@opentui/core"
+import { createRoot } from "@opentui/react"
+import { App } from "./App.tsx"
 
-function App() {
-  return (
-    <box alignItems="center" justifyContent="center" flexGrow={1}>
-      <box justifyContent="center" alignItems="center">
-        <ascii-font font="tiny" text="BStack" />
-        <text attributes={TextAttributes.DIM}>Create a tech stack for Brainshop</text>
-      </box>
-    </box>
-  );
-}
-
-const renderer = await createCliRenderer();
-createRoot(renderer).render(<App />);
+const renderer = await createCliRenderer({ exitOnCtrlC: false })
+createRoot(renderer).render(<App />)
