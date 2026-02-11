@@ -28,7 +28,7 @@ export async function researchTopic(
 ) {
   // Pass 1: web research
   const { text: research } = await generateText({
-    model: "openai/gpt-4.1",
+    model: "openai/gpt-5.1-codex",
     tools: { webSearch: openai.tools.webSearch() },
     stopWhen: stepCountIs(5),
     prompt: `Research the best technologies, frameworks, libraries, and tools for building a project about: "${topic}". Search the web for the most current and recommended options. Focus on production-ready, well-maintained technologies. Summarize your findings with specific technology names, what category they fall into, and why they are recommended.`,
@@ -36,7 +36,7 @@ export async function researchTopic(
 
   // Pass 2: stream structured output
   const result = streamText({
-    model: "openai/gpt-4.1",
+    model: "openai/gpt-5.1-codex",
     output: Output.array({ element: TechSchema }),
     prompt: `Based on this research, extract a list of recommended technologies. For each technology provide the name, category, a short description, reasoning for why it's recommended, documentation URL, and optionally a GitHub repository URL.
 
