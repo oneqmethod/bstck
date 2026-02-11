@@ -1,5 +1,6 @@
 import { generateText, Output } from "ai"
 import { z } from "zod"
+import { createModel } from "./model.ts"
 import type { Technology, SkillResult } from "../types.ts"
 
 const ValidationSchema = z.object({
@@ -29,7 +30,7 @@ async function validateCandidate(
   tech: Technology
 ): Promise<{ isMatch: boolean; confidence: number }> {
   const result = await generateText({
-    model: "openai/gpt-4.1",
+    model: createModel("openai/gpt-5.1-codex"),
     output: Output.object({ schema: ValidationSchema }),
     prompt: `You are validating whether a Claude Code skill matches a technology.
 

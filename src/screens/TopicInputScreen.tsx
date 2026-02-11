@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { TextAttributes } from "@opentui/core"
 import { useKeyboard } from "@opentui/react"
 import { useApp } from "../App.tsx"
@@ -8,13 +8,15 @@ import { StatusBar } from "../components/StatusBar.tsx"
 export function TopicInputScreen() {
   const { dispatch } = useApp()
   const [topic, setTopic] = useState("")
+  const topicRef = useRef(topic)
+  topicRef.current = topic
 
   useKeyboard((key) => {
     if (key.name === "escape") {
       dispatch({ type: "SET_SCREEN", screen: "mode-select" })
     }
-    if ((key.name === "return" || key.name === "enter") && topic.trim()) {
-      dispatch({ type: "SET_TOPIC", topic: topic.trim() })
+    if ((key.name === "return" || key.name === "enter") && topicRef.current.trim()) {
+      dispatch({ type: "SET_TOPIC", topic: topicRef.current.trim() })
       dispatch({ type: "SET_SCREEN", screen: "research" })
     }
   })
@@ -27,7 +29,7 @@ export function TopicInputScreen() {
           <text>What do you want to build?</text>
           <input
             value={topic}
-            onChange={setTopic}
+            onInput={setTopic}
             placeholder="e.g. real-time chat app with AI features"
             focused
           />

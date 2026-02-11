@@ -1,5 +1,6 @@
 import { streamText, Output } from "ai"
 import { z } from "zod"
+import { createModel } from "./model.ts"
 import type { Technology, TechCategory } from "../types.ts"
 
 const TechCategorySchema = z.enum([
@@ -49,7 +50,7 @@ export async function analyzeRepos(
 
   // Stream structured tech extraction
   const result = streamText({
-    model: "openai/gpt-4.1",
+    model: createModel("openai/gpt-5.1-codex"),
     output: Output.array({ element: TechSchema }),
     prompt: `Analyze the following repository source information and extract the key technologies, frameworks, libraries, and tools used. For each technology provide the name, category, a short description, reasoning for why it's part of this stack, documentation URL, and optionally a GitHub repository URL.
 

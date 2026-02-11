@@ -11,7 +11,7 @@ import { ConfigScreen } from "./screens/ConfigScreen.tsx"
 import { GeneratingScreen } from "./screens/GeneratingScreen.tsx"
 import { DoneScreen } from "./screens/DoneScreen.tsx"
 
-const initialState: AppState = {
+export const initialState: AppState = {
   screen: "welcome",
   mode: null,
   topic: "",
@@ -22,7 +22,7 @@ const initialState: AppState = {
   claudeMdGenerated: false,
 }
 
-function reducer(state: AppState, action: AppAction): AppState {
+export function reducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
     case "SET_SCREEN":
       return { ...state, screen: action.screen }
@@ -76,7 +76,7 @@ type AppContextType = {
   dispatch: Dispatch<AppAction>
 }
 
-const AppContext = createContext<AppContextType | null>(null)
+export const AppContext = createContext<AppContextType | null>(null)
 
 export function useApp() {
   const ctx = useContext(AppContext)

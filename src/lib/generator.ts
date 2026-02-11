@@ -1,6 +1,7 @@
 import { generateText, stepCountIs } from "ai"
 import { openai } from "@ai-sdk/openai"
 import { mkdir } from "fs/promises"
+import { createModel } from "./model.ts"
 import type { Technology, SkillResult } from "../types.ts"
 
 export async function generateClaudeMd(
@@ -16,7 +17,7 @@ export async function generateClaudeMd(
     .join(", ")
 
   const { text } = await generateText({
-    model: "openai/gpt-4.1",
+    model: createModel("openai/gpt-5.1-codex"),
     prompt: `Generate a CLAUDE.md file for a project that uses these technologies:
 
 ${techList}
@@ -77,7 +78,7 @@ export async function generateCustomSkill(
     // Generate skill files with AI + web search
     log(`Generating skill files for ${tech.name}...`)
     const { text } = await generateText({
-      model: "openai/gpt-4.1",
+      model: createModel("openai/gpt-5.1-codex"),
       tools: { webSearch: openai.tools.webSearch() },
       stopWhen: stepCountIs(5),
       prompt: `You are generating a Claude Code skill for the technology: "${tech.name}".

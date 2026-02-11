@@ -48,7 +48,7 @@ export function RepoInputScreen() {
           <text>Enter owner/repo or package name:</text>
           <input
             value={value}
-            onChange={setValue}
+            onInput={setValue}
             placeholder="e.g. vercel/next.js"
             focused
           />

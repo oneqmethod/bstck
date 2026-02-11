@@ -11,6 +11,14 @@ Terminal CLI app for curating tech stacks with instructions on how to develop us
 - `bun install` — install dependencies
 - `bun dev` — run app in watch mode
 - `bun add <pkg>` — add a dependency (never manually edit package.json)
+- `bun test` — run all tests
+- `bun test <file>` — run a specific test file
+
+## Testing
+
+- Run `bun test` after any code change to catch regressions.
+- Add tests for new features and bug fixes. Test files live next to source files as `<name>.test.tsx`.
+- Tests use OpenTUI's `testRender` — load `/opentui` skill for patterns.
 
 ## Architecture
 

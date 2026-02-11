@@ -4,7 +4,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bun run --watch src/index.tsx"
+    "dev": "bun run --watch src/index.tsx",
+    "test": "bun test src/screens"
   },
   "devDependencies": {
     "@types/bun": "latest"
@@ -13,6 +14,7 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@ai-sdk/devtools": "^0.0.13",
     "@ai-sdk/openai": "^3.0.26",
     "@opentui/core": "^0.1.77",
     "@opentui/react": "^0.1.77",
